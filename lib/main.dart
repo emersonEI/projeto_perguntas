@@ -4,9 +4,6 @@ import './resultado.dart';
 
 main() => runApp(PerguntaApp());
 
-///"PerguntaApp" é um componente com estado que desenha um questionário
-///na tela com perguntas e respostas, que ao serem selecionadas pelo usuário
-///totalizam uma pontuação que afeta a mensagem final de resposta ao usuário
 class PerguntaApp extends StatefulWidget {
   @override
   _PerguntaAppState createState() {
@@ -15,11 +12,6 @@ class PerguntaApp extends StatefulWidget {
 }
 
 class _PerguntaAppState extends State<PerguntaApp> {
-  ///"_perguntaSelecionada" indica qual a pergunta da lista deve ser acessada;
-  ///"_pontuacaoTotal" indica quantos pontos o usuário ganhou na totalização
-  ///das respostas;
-  ///"_pergutas" é uma lista de Maps que possue em seus valores as Strings
-  ///das perguntas, respostas e inteiros da pontuação dada por cada pergunta;
   var _perguntaSelecionada = 0;
   var _pontuacaoTotal = 0;
   final _perguntas = const [
@@ -52,8 +44,6 @@ class _PerguntaAppState extends State<PerguntaApp> {
     }
   ];
 
-  ///"_responder" altera o estado da aplicação sempre a resposta de uma
-  ///pergunta é selecionada. É chamado por comunicação indireta;
   void _responder(int pontuacao) {
     if (temPerguntaSelecionada) {
       setState(() {
@@ -63,9 +53,6 @@ class _PerguntaAppState extends State<PerguntaApp> {
     }
   }
 
-  ///"_reiniciarQuestionario" redefine o estado da aplicação para o estado
-  ///inicial de suas variáveis "_perguntaSelecionada" e "_pontuacaoTotal"
-  ///redesenhando a tela. É chamado por comunicação indireta;
   void _reiniciarQuestionario() {
     setState(() {
       _perguntaSelecionada = 0;
@@ -73,16 +60,10 @@ class _PerguntaAppState extends State<PerguntaApp> {
     });
   }
 
-  ///Verifica se no índice indicado por "_perguntadaSelecionada"
-  ///há uma pergunta na lista de perguntas("_perguntas");
   bool get temPerguntaSelecionada {
     return _perguntaSelecionada < _perguntas.length;
   }
 
-  ///O método build do estado("PerguntaAppState") de "PerguntaApp" no topo da
-  ///hierarquia de sua árvore de widgets um "Scaffold" composto por uma "AppBar"
-  ///e dois widgets criados nos arquivos "questionario.dart" e "resultado.dart",
-  ///respectivamente. Estes são responsaveis por desenhar o restante da tela;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

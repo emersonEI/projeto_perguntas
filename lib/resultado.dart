@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
 
-///"Resultado" é um widget sem estado que exibe uma mensagem ao usuário
-///dependendo da pontuação adquirida nas respostas e desenha um botão de texto
-///que ao selecionar reinicia o questionário através de comunicação indireta
-///com o componente pai;
 class Resultado extends StatelessWidget {
   final int pontuacao;
-  ///"quandoReiniciarQuestionario" é a função passada como parâmetro no
-  ///construtor de "Resultado", o qual recebe o método "_reiniciarQuestionario"
-  ///como parâmetro que "reseta" o estado de "PerguntaApp"
   final void Function() quandoReiniciarQuestionario;
 
   Resultado(this.pontuacao, this.quandoReiniciarQuestionario);
